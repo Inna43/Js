@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Понг</title>
+<style>
+  #kg{
+    position:absolute;
+    color:green;
+    font-size:25pt;
+    top:175px;
+    left:525px;
+    } 
+  #ks{
+    position:absolute;
+    color:green;
+    font-size:25pt;
+    top:125px;
+    left:525px;
+    }
+  #kss{
+    position:absolute;
+    color:black;
+    font-size:25pt;
+    top:125px;
+    left:750px; 
+  }
+  #kgg{
+    position:absolute;
+    color:black;
+    font-size:25pt;
+    top:175px;
+    left:775px; 
+  }
+  #rah{
+    position:absolute;
+    color:green;
+    font-size:25pt;
+    top:225px;
+    left:525px; 
+  }
+  #rahh{
+    position:absolute;
+    color:black;
+    font-size:25pt;
+    top:225px;
+    left:920px; 
+  }  
+  #knopka1{
+    position:absolute;
+    background: navy;
+    color:white;
+    font-size:20pt;
+    top:55px;
+    left:515px;
+  }
+  #knopka{
+    position:absolute;
+    background: navy;  
+    color: white;  
+    font-size: 20pt;
+    top:10px;
+    left:515px; 
+  }
+  #ball{
+    position:absolute;
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    margin:0;
+    top:80px;
+    left:20px;
+    background-color:red;
+    z-index:2;
+  }
+  #klitka{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border: 3px solid blue;
+    margin:0;
+    z-index:-1;
+  }
+  #raketka{
+    position:absolute;
+    background-color:green;
+    width:100px;
+    height:5px;
+    margin:0;
+    top:490px;
+    left:200px;
+    z-index:10;
+ }
+  .cegl{
+    position:absolute;
+    background-color:green;
+    width:45px;
+    height:5px;
+    margin:0;
+    top:20px;
+    left:20px;
+    z-index:1;
+  } 
+</style>
+<script>
+  var obk, obr;              // об'єкти ракетка і кулька
+  var lk , lr, rt = 490 ;    // rt стартова висота ракетки
+  var dxr=10 , dyr=10;       // швидкість переміщення ракетки по x i y
+  var xvector=1 , yvector=1; // напрями руху кульки по x i y
+  var krokx=1 , kroky=2;     // швидкість руху кульки по x i y
+  var x , y, xr;             // текучі координати кульки по x i y
+  var element, rak;          // об'єкти кульки та ракетки
+  var ruh;                   // об'єкт функції руху
+  var a = 0 , b = 100;       // змінні для підрахунку очків і життів
+  var t = 10;                // стартове значення затримки руху
+  var my;                    // текуче значення кульки по y
+  var count = 0;             // кількість збитих цеглинок
+
+  // формування цеглинок 100 цеглинок
+  var kkleft=18;             // ліве зміщення  по x першої цеглинки 
+  var kkrokx=49;             // відносне зміщенн по х інших цеглинок 
+  var kktop=18;              // верхнє зміщення  по y першої цеглинки
+  var kkroky=10;             // відносне зміщенн по y інших цеглинок 
+  var mas = new Array(5);    // 5 рядків масиву значень кольору цеглинок
+  // 0 - зелений, 1 - синій, 2 - червоний, 3 - білий
+
+  for(var j=0; j<5; j++){
+    mas[j] = new Array(10);  // в кожному рядку по 10 стовпчиків 
+    for(var i=0; i<10; i++){
+      var idd='c' + j + i;    // формування id цеглинки 
+      document.write('<div class="cegl" id='+idd+'></div>');         // створення контейнера-цеглинки
+      document.getElementById(idd).style.left=kkleft+i*kkrokx+'px';  // зміщення контейнера-цеглинки по x
+      document.getElementById(idd).style.top=kktop+j*kkroky+'px';    // зміщення контейнера-цеглинки по y
+      mas[j][i]=0; // зелений колір цеглинки по змовчуванню
+    }    
+  }
+
+  // функція керування ракеткою
+  function GetChar(event){
+    rak = document.getElementById('raketka');
+    xr =parseInt(window.getComputedStyle(rak).left);
+      if (event.keyCode==39){
+       if(xr<410) rak.style.left = xr+dxr+'px'; 
+      }
+      
+      if (event.keyCode==37){
+      if (xr>10) rak.style.left = xr-dxr+'px' ;   
+    }
+  }
+
+  // функція руху кульки
+  function start(){
+    element=document.getElementById("ball");
+    x=parseInt(window.getComputedStyle(element).left);
+    my=parseInt(window.getComputedStyle(element).top); 
+  
+    element.style.left=x+xvector*krokx+"px";
+    if (x>458) xvector=-1;
+    if (x<10) xvector=+1;
+    y=parseInt(window.getComputedStyle(element).top);
+    // вихід кульки за межі клітки знизу
+    if (y>=460) {
+      yvector=-1;   // зміна напрямку руху кульки вверх
+      b--; // якщо кулька вийшла за межі клітки зменшуємо життя
+      kgg.innerHTML=b; // показуємо кількість життів
+    }  
+    // вихід кульки за межі зверху
+    if (y<11) yvector=+1; // зміна напрямку руху кульки вниз
+
+    // отримання об'єктів ракетки і кульки для визначення даних для відбивання від ракетки
+    obr = document.getElementById("raketka");
+    lr =parseInt(window.getComputedStyle(obr).left);
+    obk = document.getElementById("ball");
+    lk =parseInt(window.getComputedStyle(obk).left);
+    // подія відбивання кульки від ракетки
+    if(y>=rt-50){
+      if ((lk+30>=lr)&&(lk+20<=lr+100)){
+        rt -= 2; // піднімання ракетки вгору
+        y-=2;    // корекція координати висоти кульки
+        t-=1;    // зменшення часу затримки
+        yvector=-1; // зміна вектору руху на вверх
+        a++;        // зарахування очка при відбиванні
+        kss.innerHTML=a; // показ очків при відбиванні
+      }
+    }
+    obr.style.top=rt+"px"; // переміщення ракетки вверх
+    element.style.top=y+yvector*kroky+"px"; // переміщення кульки по x
+    // перевірка кількості життів
+    if (b==0) {
+      clearTimeout(ruh); // зупинка функції руху
+      location.reload(); // обновити сторінку
+      alert("Game Over!"); // показати закінчення гри
+    }
+
+    // збивання цеглинок
+    for(var j=0; j<5; j++){        // перегляд цеглинок по вертикалі
+      for(var i=0; i<10; i++){     // перегляд цеглинок по горизонталі
+        var idd='c' + j + i;       // формування id цеглинки для доступу до неї
+        if( (parseInt(document.getElementById(idd).style.top)+5 >= my) &&      // перевірка на висоту
+            (parseInt(document.getElementById(idd).style.left) <= x+25) &&     // перевірка на праву сторону цеглинки
+            (parseInt(document.getElementById(idd).style.left)+45 >= x+25) &&  // перевірка на ліву сторону цеглинки
+            (document.getElementById(idd).style.backgroundColor!='white')      // перевірка на колір цеглинки      
+          ) {
+          // відбиття від цеглинки
+          yvector=1;
+          // при відбитті кулька відскакує вниз на 5 px, щоб не було тривалого наїзду
+          element.style.top=my+5+"px"; 
+          obc = document.getElementById(idd);
+          switch (mas[j][i]) {
+            case 0: // якщо стукнула зелену цеглинку, то стала синьою
+               obc.style.backgroundColor='blue';
+               mas[j][i]=1; // ознака синього кольору
+               continue;
+            case 1: // якщо стукнула синю цеглинку, то стала червоною
+               obc.style.backgroundColor='red';
+               mas[j][i]=2; // ознака червоного кольору
+               continue;
+            case 2: // якщо стукнула червону цеглинку, то стала білою
+               obc.style.backgroundColor='white';
+               mas[j][i]=3; // ознака білого кольору
+               count++;     // рахуємо кількість збитих цеглинок
+               rahh.innerHTML=count; // виводимо результат
+               continue;
+          }
+          if(count==100) {                // перевірка на кількість збитих цеглинок для завершення гри
+            alert("Всі цеглинки збиті!"); 
+            clearInterval(ruh);           // зупинка функції руху
+          }          
+        }
+      }
+    }            
+    ruh=setTimeout("start();",t); // функція руху
+  }
+</script>
+</head>
+<body onkeydown="GetChar(event);">
+  <div id="ball"></div>
+  <div id="klitka"></div> 
+  <div id="raketka"></div>
+  <input type="button" id="knopka" value="Start" onclick="start();">
+  <input type="button" id="knopka1" value="Stop" onclick="clearTimeout(ruh);">
+  <span id="ks">Кількість балів:</span>
+  <span id="kss">0</span>
+  <span id="kg">Кількість життів:</span>
+  <span id="kgg">100</span>
+  <span id="rah">Кількість збитих цеглинок:</span>
+  <span id="rahh">0</span>  
+</body>
+</html>

@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div{
+  
+
+    margin:  20px auto;
+   
+}
+.btn{
+    width: 500px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   
+}
+button{
+    margin: 10px;
+    padding: 5px;
+}

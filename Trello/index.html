@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css">
+    <title>Trello</title>
+</head>
+<body>
+
+    <div class="header">
+        <div class="logo">
+            <select name="" id="">
+                <option value="board"> board </option>
+                <option value="calendar"> calendar </option>
+            </select>
+
+        </div>
+        <div class="name">
+            <h1>Trello</h1>
+
+        </div>
+        <div class="add">
+            <i class="fa fa-plus  fa-1x" aria-hidden="true"></i>
+
+        </div>
+    </div>
+    
+    <div class="nav">
+        <div class="tag">
+            <ul>
+                <li class="js">JavaScript</li>
+                <li class="ht">Html</li>
+                <li class="css">Css</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        
+        <div class="card">
+            <h2>Todo</h2>
+            <hr>
+                 <div class="card-item"></div>
+            <hr>
+            <div class="add-task">
+                   <input type="text" placeholder="Введите задание" value=""> 
+                   <button class="add" onclick="createNewElement()">
+                       <i  class="fa fa-plus  fa-1x" aria-hidden="true"></i>
+                   </button>    
+            </div>           
+        </div>
+
+        <div class="card">
+            <h2>In Progress</h2>
+            <hr>
+            <div class="restore-task">  </div>
+        </div>
+
+        <div class="card">
+            <h2>Done</h2>
+            <hr>   
+        </div>    
+        
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-image: url(./fon.jpg);
+    background-size: cover;
+
+
+}
+/*header*/
+.header{
+    height: 70px;
+    background-color: rgb(11, 12, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+h1{
+    color: white;
+}
+i{
+    color: rgb(199, 22, 22);
+}
+.fa{
+    color: black;
+}
+
+/*nav*/
+.nav{
+    height: 70px;
+    background-color: rgb(234, 243, 243);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+select{
+    width: 100px;
+    height: 30px;
+}
+.add-button{
+    width: 30px;
+    height: 30px;
+    border: 0.5px solid rgb(189, 46, 46);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+ 
+}
+h2{
+    font-size: 35px;
+}
+.tag{
+    width: 200px;
+
+}
+ul{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+li{
+    list-style-type: none;
+}
+.js{
+    background-color: aqua;
+}
+.ht{
+    background-color: rgb(0, 255, 170);
+}
+.css{
+    background-color: rgb(0, 255, 0);
+}
+/*board*/
+
+
+.main{
+    width: 100%;
+    min-height: 20vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.card-item{
+    margin: 10px;
+    width: 300px;
+    background-color: rgb(245, 245, 236);
+    display: flex;
+    flex-direction: column;
+    align-self: baseline;
+}
+
+.header-item{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.title{
+    text-align: center;
+    font-size: 35px;
+    padding: 5px;
+    width: 100%;
+}
+.close{
+    width: 30px;
+    height: 30px;
+    border: 0.5px solid rgb(189, 46, 46);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.list{
+  min-height: 40px;
+}
+
+.list-item{
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+    margin: 5px;
+    background-color: rgb(91, 95, 95);
+    outline: none;
+    cursor: pointer;
+    color: white;
+    overflow: hidden;
+}
+
+.form{
+    border-radius: 5px;
+    margin-top: auto;
+    display: none;
+}
+
+.textarea{
+     resize: none;
+     width: 290px;
+     height: 60px;
+     border-radius: 5px;
+     border: none;
+     background-color: white;
+     padding: 10px;
+     margin: 5px;
+     border: none;
+}
+.buttons{
+    display: flex;
+}
+.add{
+    background: rgb(216, 155, 41);
+    width: 50%;
+    height: 30px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.cancel{
+    background: rgb(170, 173, 164);
+    width: 50%;
+    height: 30px;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+.add-btn{
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    background-color: rgb(209, 209, 196);
+    margin: 5px; 
+    cursor: pointer;
+}
+span{
+    margin-left: 5px;
+    margin-right: 10px;
+  
+   
+}
+
+
+/*Modal*/
+
+.modal{
+    width: 500px;
+    min-height: 180px;
+    background-color: blanchedalmond;
+    margin: 100px auto;
+    display: block;
+    border-radius: 5px;
+
+
+}
+
+.modal-content{
+   min-height: 100px;
+}
+
+.modal-btn{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+h1{
+    text-align: center;
+    font-size: 35px;
+    padding: 5px;
+}

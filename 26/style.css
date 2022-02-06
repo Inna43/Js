@@ -1,0 +1,11 @@
+body{
+
+    text-align: center;
+
+}
+
+.main{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}

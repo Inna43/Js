@@ -1,0 +1,21 @@
+.board{
+
+    background-color: aqua;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.board-item{
+    width: 300px;
+    background-color: antiquewhite;
+    min-height: 100px;
+    margin: 5px;
+}
+
+.nav{
+    height: 50px;
+    background-color: black;
+}

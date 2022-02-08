@@ -1,8 +1,52 @@
+
+let addButton=document.querySelector('.add-but')
+
 const inputTxt=document.querySelector('.txt')
 const addTask=document.querySelector('.add-task')
-const addBoard=document.querySelector('.add-board')
+const board=document.querySelector('.board')
 const todoTask=document.querySelector('.list')
 const todoBoard=document.querySelector('.board')
+
+
+// let boards
+
+// !localStorage.boards ? boards=[] : boards=JSON.parse(localStorage.getItem('boards'))
+
+
+let boardArray=[]
+function addNewBoard(){
+    let newboard=document.querySelector('.board-item')
+        newboard.innerHTML=` <h1>Todo</h1>
+        <hr>
+           <div class="cards">
+               <input class='txt' type="text" placeholder="add task">
+               <button class="add-task">Add</button>
+            </div>
+            <div class="list">
+                    <!-- <div class="list-item"> Task</div> -->
+            </div>`
+
+         board.append(newboard)
+      
+     
+         updateLocal()
+}
+
+
+function delBoard(){
+    let delboard=document.querySelector('.board-item')
+    document.querySelector('.board-item').remove(delboard)
+    updateLocal()
+    
+}
+
+
+
+function updateLocal() {
+localStorage.setItem('boards',JSON.stringify(boards))
+
+}
+
 
 
 let tasks
@@ -21,10 +65,7 @@ function Task(description){
     this.completed=false;
 }
 
-function Board(description){
-    
-    this.completed=false;
-}
+
 
 const createTemplate=(task, index) =>{
     return `
@@ -36,6 +77,7 @@ const createTemplate=(task, index) =>{
 </div> 
     `
 }
+
 const addTaskList = () =>{
     todoTask.innerHTML=""
     if (tasks.length>0){
@@ -47,28 +89,7 @@ const addTaskList = () =>{
 }
 addTaskList()
 
-/*const createBoard =(board) =>{
-     return`
-   <div class="board-item">
-     ${board.description}
-     </div>
-     `}
 
- const addBoardList = () =>{
-     if (boards.length>0){
-        boards.forEach( (item, index) => {
-             todoBoard.innerHTML += createBoard(item, index)          
-         })
-        todoBoardItem=document.querySelectorAll('.board-item')
-     }
- }
-
-addBoardList()*/
-
-const updateLocal=() =>{
-    localStorage.setItem('tasks', JSON.stringify(tasks))
-    localStorage.setItem('boards', JSON.stringify(boards))
-}
 
 
 addTask.addEventListener('click', () =>{
@@ -77,13 +98,3 @@ addTask.addEventListener('click', () =>{
     addTaskList()
     inputTxt.value =''
 })
-
-
-
-const deleteTask = index =>{
-    tasks.splice (index, 1)
-    updateLocal()
-    addTaskList()
-}
-
-

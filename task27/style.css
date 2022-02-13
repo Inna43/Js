@@ -1,0 +1,9 @@
+span {
+    display: block;
+    text-align: center;
+    width: 1400px;
+    height: 115px;
+    background-color: red;
+    color: white;
+    font-size: 4em;
+}

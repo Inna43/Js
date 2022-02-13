@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+      
+     <div class="header">
+         <h1>Trello</h1>
+     </div>
+
+     <div class="nav">
+         <div class="left">
+            <select name="" id="">
+                <option value="board"> board</option>
+                <option value="calendar">calendar</option>
+            </select>
+         </div>
+        
+         <div class="right">
+            <select name="tag" id="">
+                <option value="Html">Html</option>
+                <option value="Css">Css</option>
+                <option value="JavaScript">JavaScript</option>
+            </select>
+  
+            <button class="add-board">  Add board </button>
+         </div>
+    </div>
+
+    <div class="main">
+
+            <!-- <div class="modal"> -->
+                <!-- <div class="modal-title">
+                    <input class="title-task"  placeholder="Введите задачу">
+                    <input type="date" class="title-date">
+                    <button class="close-task" onclick="deleteModal()" >X</button>                                   
+            </div>              
+            <hr>
+            <div class="modal-tag">
+                <label for="tag"> Укажите тег:</label>
+                <select name="tag" id="">
+                    <option value="Html">Html</option>
+                    <option value="Css">Css</option>
+                    <option value="JavaScript">JavaScript</option>
+                </select>
+            </div>
+                
+
+            <div class="modal-description">
+                <textarea  placeholder="Введите описание"></textarea>
+            </div>
+             <button class="modal-footer" onclick="addCard()">Save</button>    -->
+        <!-- </div> -->
+
+
+
+
+
+
+             <div class="main-item">
+                 <ul class="header-item">
+
+                    <li class="title" contenteditable="true"> ToDo </li>
+                    <li class="add-setting">...
+                        <ul>
+                            <div class="drop-item">
+                                <input type="color" class="color">
+                                <li class="add-color" onclick="changeColor()">Change color</li>
+                                <li class="close" onclick="deleteBoard()"> X </li>
+                            </div>
+                           
+                         
+
+                        </ul>
+                    </li>
+
+
+                      <!-- <span class="title" contenteditable="true"></span>
+                      <span class="add-setting">...</span>  -->
+                 </ul>
+                <hr>
+
+                <!-- Задача -->
+                <div class="list">
+                    <div class="list-item">
+
+
+                    </div>
+                </div>
+
+                <div class="form">
+                    <textarea name="textarea" placeholder="Введите задачу"></textarea>
+                    
+                    <!-- <div class="buttons">
+                        <button class="add"> Add </button>
+                        <button class="cancel"> Cancel </button>
+                    </div>   -->
+                    
+                    <div class="add-task" onclick="addTask()"> Add another task</div>
+                </div>
+
+             </div>
+    </div>
+         
+    
+
+
+
+
+
+    <script defer src="./app.js"></script>
+</body>
+</html>

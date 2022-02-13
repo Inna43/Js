@@ -26,12 +26,11 @@ hr{
    
 }
 .header-item{
-    width: 200px;
+    width: 400px;
     height: 150px;
     background-color: rgb(253, 245, 245);
     border: 1px solid rgb(21, 9, 29);
     margin: 10px;
-
     
 }
 

@@ -1,6 +1,6 @@
-
+const boardInput=document.getElementById('title-board')
 const addBoardBtn=document.querySelector('.add-board')
-const colorInput=document.querySelector('.color')
+const colorInput=document.getElementById('color')
 const mainTask=document.querySelector('.main')
 const addTaskBtn=document.querySelector('.add-task')
 // const addTaskBtnProcess=document.querySelector('.add-task-process')

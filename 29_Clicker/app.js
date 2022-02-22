@@ -1,6 +1,6 @@
 let clickCircle=document.querySelector('.click')
 let start=document.querySelector('.start')
-
+const result=document.querySelector('.top')
 
 let count=0
 
@@ -9,6 +9,7 @@ let countArray=[]
 
 if (localStorage.getItem('results') != null){
     countArray=JSON.parse(localStorage.getItem('results'))
+    renderResults()
 }
 
 clickCircle.addEventListener('click', () =>{
@@ -49,9 +50,10 @@ function removeModal(){
         document.querySelector('.modal-wrapper').remove()
     }
 
-    countArray.push(createItem( count, setDate()))
+    countArray.push(createItem(count, setDate()))
 
     updateLocal()
+    renderResults()
     startActive()
 }
 function startActive(){
@@ -66,6 +68,21 @@ function createItem (counts, time){
     return creator
 }
 
+function renderResults(){
+        result.innerHTML=''
+        countArray.sort()
+
+        countArray.forEach(element => {
+            let newItem=document.createElement('li')
+                 newItem.className = 'result-item'
+                 newItem.innerHTML=`<span>${element.counts}  clicks </span><span>${element.time}</span>
+
+                 `
+                 result.append(newItem)
+                 console.log(countArray)
+        })
+}
+
 function setDate(){
     let today = new Date()
     let time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds()
@@ -78,9 +95,9 @@ function updateLocal(){
     localStorage.setItem('results', JSON.stringify(countArray))
 }
 
-window.addEventListener('click', (event) =>{
-    if (event.target.classList.contains('delete')){
-        removeModal()
-    }
-})
+ window.addEventListener('click', (event) =>{
+     if (event.target.classList.contains('delete')){
+         removeModal()
+     }
+ })
 

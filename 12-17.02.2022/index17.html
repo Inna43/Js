@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trello</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style17.css">
 </head>
 <body>
       
@@ -22,12 +22,8 @@
          </div>
         
          <div class="right">
-            <select name="tag" id="">
-                <option value="Html">Html</option>
-                <option value="Css">Css</option>
-                <option value="JavaScript">JavaScript</option>
-            </select>
-  
+            <input id="title-board" type="text">
+           
             <button class="add-board">  Add board </button>
          </div>
     </div>
@@ -41,7 +37,7 @@
                     <li class="add-setting">...
                         <ul>
                             <div class="drop-item">
-                                <input type="color" class="color">
+                                <input type="color" id="color">
                                 <li class="add-color" onclick="changeColor()">Change color</li>
                                 <li class="close" onclick="deleteBoard()"> X </li>
                             </div>                     
@@ -129,6 +125,6 @@
 
 
 
-    <script  src="./app.js" defer></script>
+    <script  src="./app17.js" defer></script>
 </body>
 </html>

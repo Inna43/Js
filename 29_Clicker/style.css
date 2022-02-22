@@ -107,3 +107,11 @@ button{
 .delete{
     width: 30px;
 }
+
+.result-item{
+   border-bottom: 1px solid black;
+    list-style: none;
+    width: 390px;
+    margin: 5px;
+    font-size: 25px;
+}

@@ -4,41 +4,28 @@
     box-sizing: border-box;
 }
 .header{
-    height: 70px;
     background-color: black;
-    color: azure;
+    height: 70px;
+    color: aliceblue;
     text-align: center;
-    padding-top: 15px;
+    padding-top: 20px;
 }
 .nav{
-    height: 70px;
     background-color: rgb(112, 107, 107);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-option{
-   font-size: 18px;
-}
-.add-board{
-    width: 100px;
     height: 50px;
-    background-color: black;
-    color: azure;
-    cursor: pointer;
+    text-align: end;
+    padding: 10px;
 }
 .main{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
+        
 }
 
 .main-item{
     width: 300px;
-    min-height: 70px;
-    background-color: rgb(77, 133, 133);
+    background-color: rgb(119, 148, 148);
     border: 0.5px solid black;
     border-radius: 10px;
     margin: 20px;
@@ -77,6 +64,7 @@ li{
     background-color: black;
     color: azure;
 }
+
 /*drop menu*/
 .main-item ul li ul{
     display: none;
@@ -100,12 +88,47 @@ ul li:hover>ul{
     padding: 2px;
 }
 
-.add-color{
+#add-color{
     font-size: 18px;
     padding-top: 5px;
     color: azure;
 
 }
+#add-task{
+    height: 30px;
+    font-size: 18px;
+    background-color: black;
+    color: azure;
+    width: 290px;
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 25px;
+}
+#add-board{
+    height:30px;
+    font-size: 14px;
+    background-color: black;
+    color: azure;
+    width:100px;
+   
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+/*task*/
+.list{
+    min-height: 40px;
+}
+
+.list-item{
+    background-color: antiquewhite;
+    min-height: 40px;
+}
+
 
 /*Modal*/
 .modal-wrapper{
@@ -136,14 +159,14 @@ ul li:hover>ul{
     text-align: center;
     height: 35px;
 }
-.title-task{
+#title-task{
     width: 100%;
     height:30px;
   
     padding: 5px;
     margin: 5px 0;
 }
-.title-date{
+#title-date{
     height:30px;
   
     padding: 5px;
@@ -190,39 +213,3 @@ ul li:hover>ul{
     cursor: pointer;
     line-height: 25px;
 }
-
-/*task*/
-.list{
-    min-height: 40px;
-}
-
-.list-item{
-    background-color: antiquewhite;
-    min-height: 40px;
-}
-.buttons{
-    display: flex;
-}
-textarea{
-    width: 290px;
-    height: 40px;
-    resize: none;
-    border-radius: 5px;
-    color: aqua;
-    margin: 0px 5px;
-
-}
-
-.add-task {
-    height: 30px;
-    font-size: 18px;
-    background-color: black;
-    color: azure;
-    width: 290px;
-    margin: 5px;
-    border-radius: 5px;
-    text-align: center;
-    cursor: pointer;
-    line-height: 25px;
-}
-

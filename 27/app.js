@@ -2,7 +2,7 @@ let main=document.querySelector('.main-item')
 const widthInput=document.querySelector('.width')
 const heightInput=document.querySelector('.height')
 const colorInput=document.querySelector('.color')
-
+let upBtn=document.querySelector('.up')
 
 let array=[]
 
@@ -28,7 +28,9 @@ function newElem(){
   
 
 }
-
+upBtn.addEventListener('click', () =>{
+    up()
+})
 
 function getNewElement(){
     let newWin = document.querySelector('.main-div')
